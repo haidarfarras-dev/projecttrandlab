@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrendLab — Menjelajahi Bahan Kimia Laboratorium yang Sedang Trending.">
+  <title>TrendLab — Modern Chemistry Exhibition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="pattern" aria-hidden="true">
+    <span>⌬</span><span>⚛</span><span>◌</span><span>⌬</span><span>✦</span><span>⚗</span>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#about" aria-label="TrendLab home"><span class="brand-mark"><img src="img/logo-unib.png" alt="Logo Universitas Bengkulu"></span>TrendLab</a>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div class="counter"><span id="currentNumber">01</span> / 06</div>
+  </header>
+
+  <main class="viewport" id="viewport">
+    <div class="track" id="track">
+      <section class="slide about" id="about" aria-label="About TrendLab">
+        <div class="about-layout">
+          <div class="intro-copy reveal">
+            <p class="eyebrow">01 / ABOUT THE EXHIBITION</p>
+            <h1>Trend<span>Lab</span></h1>
+            <p class="subtitle">Menjelajahi Bahan Kimia Laboratorium yang Sedang Trending</p>
+            <p class="lorem">TrendLab adalah ruang eksplorasi visual yang mengajak kita mengenal bahan kimia laboratorium melalui perspektif yang lebih modern, menarik, dan dekat dengan perkembangan dunia sains.</p>
+            <div class="meta-row"><span>SCROLL TO EXPLORE</span><span class="line"></span><span>2024—25</span></div>
+          </div>
+          <div class="profile-card glass reveal">
+            <div class="profile-image"><img src="img/foto profile.jpg" alt="Foto Azzahra Nisa Barokhah"><span class="image-label">PROFILE<br>STUDENT</span></div>
+            <div class="profile-info"><p class="eyebrow">CURATOR / STUDENT</p><h2>Azzahra Nisa Barokhah</h2><p>Universitas Bengkulu<br>Program Studi D3 Laboratorium Sains</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="slide chemical" id="chemical-1">
+        <div class="pdrn-layout"><div class="pdrn-copy reveal"><p class="eyebrow">02 / CHEMICAL INDEX</p><div class="number">01</div><h2>PDRN <em>Salmon DNA</em></h2><p class="pdrn-subtitle">Polydeoxyribonucleotide</p><div class="pdrn-facts"><article><span>MENGAPA TRENDING</span><p>Meledak berkat popularitas klinik kecantikan Korea dan tren estetika berbasis regenerative medicine.</p></article><article><span>MANFAAT UTAMA</span><p>Memperbaiki sel kulit akibat sinar UV, memperkuat skin barrier, meratakan tekstur bopeng, dan memberi efek glass skin.</p></article><article><span>KOMBINASI TERBAIK</span><p>Niacinamide atau Cica (Centella Asiatica) untuk menenangkan sekaligus mempercepat pemulihan kulit.</p></article></div></div><div class="pdrn-gallery reveal"><figure class="pdrn-image image-main"><img src="img/pdrn-powder.jpg" alt="Bubuk PDRN dalam kemasan putih"></figure><figure class="pdrn-image image-detail"><img src="img/pdrn-vials.jpg" alt="Vial PDRN di laboratorium"></figure><div class="fun-fact"><span>FUN FACT / GONG</span><p>Ekstraksi PDRN murni yang sering digunakan dalam riset medis diambil dari cairan sperma ikan salmon, biasanya <i>Oncorhynchus keta</i>. Struktur DNA-nya mirip DNA sel darah putih manusia, sehingga dapat diterima tubuh tanpa penolakan imun signifikan.</p></div></div>
+
+      </section>
+      <section class="slide chemical cyan" id="chemical-2"><div class="chemical-inner reveal"><p class="eyebrow">03 / CHEMICAL INDEX</p><div class="number">02</div><h2>Chemical <em>Two</em></h2><p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.</p><span class="pill">COMING NEXT</span></div><span class="orb orb-cyan">02</span></section>
+      <section class="slide chemical" id="chemical-3"><div class="chemical-inner reveal"><p class="eyebrow">04 / CHEMICAL INDEX</p><div class="number">03</div><h2>Chemical <em>Three</em></h2><p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.</p><span class="pill">COMING NEXT</span></div><span class="orb orb-dark">03</span></section>
+      <section class="slide chemical cyan" id="chemical-4"><div class="chemical-inner reveal"><p class="eyebrow">05 / CHEMICAL INDEX</p><div class="number">04</div><h2>Chemical <em>Four</em></h2><p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.</p><span class="pill">COMING NEXT</span></div><span class="orb orb-blue">04</span></section>
+      <section class="slide chemical final" id="chemical-5"><div class="chemical-inner reveal"><p class="eyebrow">06 / CHEMICAL INDEX</p><div class="number">05</div><h2>Chemical <em>Five</em></h2><p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.</p><span class="pill">DETAILS SOON</span></div><span class="orb orb-cyan">05</span></section>
+    </div>
+  </main>
+
+  <nav class="controls" aria-label="Slide navigation"><button id="prevButton" type="button" aria-label="Previous section">←</button><button id="nextButton" type="button" aria-label="Next section">→</button></nav>
+  <script src="script.js"></script>
+</body>
+</html>
