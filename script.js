@@ -7,6 +7,7 @@ const nextButton = document.querySelector('#nextButton');
 let current = 0;
 
 function updateSlide() {
+  if (window.matchMedia('(max-width: 700px)').matches) return;
   track.style.transform = `translateX(-${current * 100}vw)`;
   currentNumber.textContent = String(current + 1).padStart(2, '0');
   progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
@@ -20,6 +21,47 @@ function move(direction) {
   current = Math.max(0, Math.min(slides.length - 1, current + direction));
   updateSlide();
 }
+
+const imageLightbox = document.querySelector('#imageLightbox');
+const lightboxImage = document.querySelector('#lightboxImage');
+const pdrnGalleries = document.querySelectorAll('.pdrn-gallery');
+
+function closeLightbox() {
+  imageLightbox.classList.remove('open');
+  imageLightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.src = '';
+  lightboxImage.alt = '';
+}
+
+document.querySelectorAll('.pdrn-image img').forEach((image) => {
+  image.addEventListener('click', (event) => {
+    event.stopPropagation();
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    imageLightbox.classList.add('open');
+    imageLightbox.setAttribute('aria-hidden', 'false');
+  });
+});
+
+imageLightbox.addEventListener('click', closeLightbox);
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeLightbox();
+});
+
+pdrnGalleries.forEach((gallery) => {
+  gallery.addEventListener('mousemove', (event) => {
+    const bounds = gallery.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - .5;
+    const y = (event.clientY - bounds.top) / bounds.height - .5;
+    gallery.style.setProperty('--cursor-x', `${x * 10}px`);
+    gallery.style.setProperty('--cursor-y', `${y * 10}px`);
+  });
+
+  gallery.addEventListener('mouseleave', () => {
+    gallery.style.setProperty('--cursor-x', '0px');
+    gallery.style.setProperty('--cursor-y', '0px');
+  });
+});
 
 prevButton.addEventListener('click', () => move(-1));
 nextButton.addEventListener('click', () => move(1));
