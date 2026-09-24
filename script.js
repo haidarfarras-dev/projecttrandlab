@@ -6,9 +6,12 @@ const prevButton = document.querySelector('#prevButton');
 const nextButton = document.querySelector('#nextButton');
 let current = 0;
 
-function updateSlide() {
-  if (window.matchMedia('(max-width: 700px)').matches) return;
-  track.style.transform = `translateX(-${current * 100}vw)`;
+function updateSlide(behavior = 'smooth') {
+  slides[current].scrollIntoView({ behavior, block: 'start' });
+  updateIndicator();
+}
+
+function updateIndicator() {
   currentNumber.textContent = String(current + 1).padStart(2, '0');
   progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
   prevButton.disabled = current === 0;
@@ -69,9 +72,14 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight' || event.key === ' ') move(1);
   if (event.key === 'ArrowLeft') move(-1);
 });
-window.addEventListener('wheel', (event) => {
-  if (Math.abs(event.deltaY) < 15) return;
-  move(event.deltaY > 0 ? 1 : -1);
-}, { passive: true });
+const sectionObserver = new IntersectionObserver((entries) => {
+  const visibleSection = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!visibleSection) return;
+  current = slides.indexOf(visibleSection.target);
+  updateIndicator();
+}, { threshold: 0.55 });
 
-updateSlide();
+slides.forEach((slide) => sectionObserver.observe(slide));
+updateSlide('auto');
